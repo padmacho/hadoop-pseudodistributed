@@ -9,9 +9,7 @@ Vagrant.configure("2") do |config|
 		master.vm.network :private_network, ip: "192.168.2.11"
 		master.vm.hostname = "hadoop-pseudodistributed"
 		master.vm.network "forwarded_port", guest: 50070, host: 50070
-		master.vm.network "forwarded_port", guest: 50075, host: 50075
 		master.vm.network "forwarded_port", guest: 8088, host: 8088
-		master.vm.network "forwarded_port", guest: 8042, host: 8042
 		master.vm.network "forwarded_port", guest: 19888, host: 19888
 		#config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 		#master.vm.provision :shell, :path=> 'setup.sh'
