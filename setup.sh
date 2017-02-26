@@ -19,18 +19,18 @@ export PATH=\$JAVA_HOME/bin:\$PATH
 export HADOOP_HOME=/home/ubuntu/hadoop-2.7.3
 export PATH=\$PATH:\$HADOOP_HOME/bin:\$HADOOP_HOME/sbin
 EOD
-#source bashrc file
-source ~/.bashrc
+Run the bash profile
+. .bashrc
 # create appropriate configuration files
 cat > $HADOOP_HOME/etc/hadoop/core-site.xml << EOD
-	<?xml version="1.0"?>
-	<!-- core-site.xml -->
-	<configuration>
-	<property>
-	<name>fs.defaultFS</name>
-	<value>hdfs://localhost/</value>
-	</property>
-	</configuration>
+<?xml version="1.0"?>
+<!-- core-site.xml -->
+<configuration>
+<property>
+<name>fs.defaultFS</name>
+<value>hdfs://localhost/</value>
+</property>
+</configuration>
 EOD
 
 cat > $HADOOP_HOME/etc/hadoop/hdfs-site.xml << EOD
