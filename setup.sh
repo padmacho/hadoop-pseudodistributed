@@ -19,8 +19,12 @@ export PATH=\$JAVA_HOME/bin:\$PATH
 export HADOOP_HOME=/home/ubuntu/hadoop-2.7.3
 export PATH=\$PATH:\$HADOOP_HOME/bin:\$HADOOP_HOME/sbin
 EOD
-Run the bash profile
-. .bashrc
+#Run the bash profile - unfortunate bug. I need to fix
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+export HADOOP_HOME=/home/ubuntu/hadoop-2.7.3
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
 # create appropriate configuration files
 cat > $HADOOP_HOME/etc/hadoop/core-site.xml << EOD
 <?xml version="1.0"?>
