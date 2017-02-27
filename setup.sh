@@ -7,6 +7,8 @@ echo "Installing openjdk"
 sudo apt-get install -y openjdk-8-jdk
 #install python. If you prefer to use python as programming language on hadoop
 sudo apt-get install -y python
+# install basic utilites like 
+sudo apt-get install -y dos2unix
 #Download hadoop
 wget http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
 #unzip hadoop binary
