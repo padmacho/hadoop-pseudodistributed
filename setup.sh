@@ -2,30 +2,36 @@
 #sudo apt-get install dos2unix
 #downloads the package lists from the repositories and "updates" them to get information on the newest versions of packages
 sudo apt-get update
-#Install open JDK
-echo "Installing openjdk"
-sudo apt-get install -y openjdk-8-jdk
+#Install Oracle  JDK
+echo "Installing Oracle JDK"
+wget http://192.168.56.1/hadoop-installers/jdk-8u121-linux-x64.tar.gz
+echo "Untar the installer"
+tar -zxvf jdk-8u121-linux-x64.tar.gz
+
 #install python. If you prefer to use python as programming language on hadoop
 sudo apt-get install -y python
+
 # install basic utilites like 
 sudo apt-get install -y dos2unix
 #Download hadoop
-wget http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+wget http://192.168.56.1/hadoop-installers/hadoop-2.7.3.tar.gz
 #unzip hadoop binary
 tar -xvf hadoop-2.7.3.tar.gz
 
 #Update JAVA_HOME and PATH
 cat >> ~/.bashrc << EOD
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/home/vagrant/jdk1.8.0_121
 export PATH=\$JAVA_HOME/bin:\$PATH
-export HADOOP_HOME=/home/ubuntu/hadoop-2.7.3
+export HADOOP_HOME=/home/vagrant/hadoop-2.7.3
 export PATH=\$PATH:\$HADOOP_HOME/bin:\$HADOOP_HOME/sbin
 EOD
-#Run the bash profile - unfortunate bug. I need to fix
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+#Run the bash profile
+#source ~/.bashrc
+export JAVA_HOME=/home/vagrant/jdk1.8.0_121
 export PATH=$JAVA_HOME/bin:$PATH
-export HADOOP_HOME=/home/ubuntu/hadoop-2.7.3
+export HADOOP_HOME=/home/vagrant/hadoop-2.7.3
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
 
 # create appropriate configuration files
 cat > $HADOOP_HOME/etc/hadoop/core-site.xml << EOD
@@ -34,7 +40,7 @@ cat > $HADOOP_HOME/etc/hadoop/core-site.xml << EOD
 <configuration>
 <property>
 <name>fs.defaultFS</name>
-<value>hdfs://localhost/</value>
+<value>hdfs://192.168.2.11/</value>
 </property>
 </configuration>
 EOD
