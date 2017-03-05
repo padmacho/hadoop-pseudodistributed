@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
 		master.vm.box_check_update = false
 		master.vm.provider "virtualbox" do |v|
 		  v.name = "hadoop-pseudodistributed"
-		  v.customize ["modifyvm", :id, "--memory", "6024"]
+		  v.customize ["modifyvm", :id, "--memory", "1024"]
 		end
 		master.vm.network :private_network, ip: "192.168.2.11"
 		master.vm.hostname = "hadoop-pseudodistributed"

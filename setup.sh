@@ -53,6 +53,14 @@ cat > $HADOOP_HOME/etc/hadoop/hdfs-site.xml << EOD
 <name>dfs.replication</name>
 <value>1</value>
 </property>
+<property>
+<name>dfs.datanode.data.dir</name>
+<value>/home/vagrant/hadoop/hdfs/datanode</value>
+</property>
+<property>
+<name>dfs.namenode.name.dir</name>
+<value>/home/vagrant/hadoop/hdfs/namenode</value>
+</property>
 </configuration>
 EOD
 
